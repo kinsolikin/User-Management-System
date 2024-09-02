@@ -1,3 +1,4 @@
+'use Client'
 import React from "react";
 import Navbar from "../Navbar";
 import Side from "../Sidebar";
@@ -7,21 +8,24 @@ function Layout({ guest, mainmenu }) {
 
     return (
         <div>
-            <Navbar />
-            <div class="flex ">
                 {auth.user ? (
+           <>
+           <Navbar />
+
+            <div class="flex ">
                     <>
-                        <div class="flex-auto w-full ml-10 ">
+                        <div class="flex-auto   ">
                             <Side />
                         </div>
-                        <div class="flex-auto w-full  mr-20 ...">{mainmenu}</div>
+                        <div class="flex-auto w-full   ...">{mainmenu}</div>
+                    </>
+            </div>
                     </>
                 ) : (
                     <div class="flex-auto w-full">
                     <>{guest}</>
                         </div>
                 )}
-            </div>
         </div>
     );
 }

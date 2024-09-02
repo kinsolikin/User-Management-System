@@ -48,7 +48,7 @@ function Forgot_Password() {
                                   
                                     Forgot Password
                                 </a>
-                                <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+                                <div class="w-96 p-6 bg-white  shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
                                     <h2 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                         Change Password
                                     </h2>
@@ -93,7 +93,7 @@ function Forgot_Password() {
                                             type="email"
                                             name="email"
                                             id="email"
-                                            class={`pl-10 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
+                                            class={`pl-10 bg-gray-50 border text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
                         ${
                             errors.email
                                 ? "border-red-500 dark:border-red-500"
@@ -123,7 +123,8 @@ function Forgot_Password() {
                                         <button
                                     onClick={handlesubmit}
                                     type="submit"
-                                    class="w-full text-white bg-blue-700 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                                    class="w-full text-black bg-yellow-400  font-medium  text-sm px-5 py-2.5 me-2 mb-2  "
+
                                 >
                                     {loading ? (
                                         <>

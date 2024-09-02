@@ -1,15 +1,25 @@
 "use client";
-import { useForm } from "@inertiajs/react";
+import { useForm, usePage } from "@inertiajs/react";
 import React, { useState } from "react";
 import { Link } from "@inertiajs/react";
 import Layout from "../components/Layout/Layout";
-function Login({ status }) {
+
+
+function Login() {
+
+    const {flash} = usePage().props
+
+    const [visible, setVisible] = useState(!!flash.success);
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const { data, setData, post, reset, processing, errors } = useForm({
         email: "",
         password: "",
     });
+
+    const handleClose = () => {
+        setVisible(false);
+      };
 
     function submit(e) {
         e.preventDefault();
@@ -34,14 +44,15 @@ function Login({ status }) {
     };
 
     return (
+          
         <div>
-            {status ? (
+            {flash && visible? (
                 <div
                     id="toast-success"
-                    class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                    class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white  shadow dark:text-gray-400 dark:bg-gray-800"
                     role="alert"
                 >
-                    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100  dark:bg-green-800 dark:text-green-200">
                         <svg
                             class="w-5 h-5"
                             aria-hidden="true"
@@ -53,12 +64,13 @@ function Login({ status }) {
                         </svg>
                         <span class="sr-only">Check icon</span>
                     </div>
-                    <div class="ms-3 text-sm font-normal">{status}</div>
+                    <div class="ms-3 text-sm font-normal">{flash.success}</div>
                     <button
                         type="submit"
-                        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900  focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                         data-dismiss-target="#toast-success"
                         aria-label="Close"
+                        onClick={handleClose}
                     >
                         <span class="sr-only">Close</span>
                         <svg
@@ -89,9 +101,9 @@ function Login({ status }) {
                     >
                         Login
                     </a>
-                    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-96 bg-white  shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-500 md:text-2xl dark:text-white">
                                 Sign in to your account
                             </h1>
                             <form
@@ -123,7 +135,7 @@ function Login({ status }) {
                                             type="email"
                                             name="email"
                                             id="email"
-                                            class={`pl-10 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
+                                            class={`pl-10 bg-gray-50 border text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
                         ${
                             errors.email
                                 ? "border-red-500 dark:border-red-500"
@@ -168,7 +180,7 @@ function Login({ status }) {
                                             name="password"
                                             id="password"
                                             placeholder="••••••••"
-                                            class={` pl-0 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
+                                            class={` pl-0 bg-gray-50 border text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
                         ${
                             errors.password
                                 ? "pl-10 border-red-500 dark:border-red-500"
@@ -248,7 +260,7 @@ function Login({ status }) {
                                                 id="remember"
                                                 aria-describedby="remember"
                                                 type="checkbox"
-                                                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                                                class="w-4 h-4 border border-gray-300  bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                                                 required
                                             />
                                         </div>
@@ -271,7 +283,8 @@ function Login({ status }) {
                                 <button
                                     onClick={handlesubmit}
                                     type="submit"
-                                    class="w-full text-white bg-blue-700 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                                    class="w-full text-black bg-yellow-400  font-medium  text-sm px-5 py-2.5 me-2 mb-2  "
+
                                 >
                                     {loading ? (
                                         <>

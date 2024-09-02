@@ -41,6 +41,11 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user() 
             ],
 
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
+                'sendlinkreset' => fn() => $request->session()->get('sendlinkreset'),
+            ],
+
            
         ]);
     }

@@ -12,10 +12,7 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {     
-        return Inertia::render('Dash_board',[
-            'verify' => 'Data di tambahkan silahkan klik verifikasi di email yang kami kirim',
-           
-        ]);
+        return Inertia::render('Dash_board');
     }
 
 

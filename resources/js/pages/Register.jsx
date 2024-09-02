@@ -45,10 +45,10 @@ function Regist({ verify }) {
             {verify ? (
                 <div
                     id="toast-warning"
-                    class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                    class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white  shadow dark:text-gray-400 dark:bg-gray-800"
                     role="alert"
                 >
-                    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
+                    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100  dark:bg-orange-700 dark:text-orange-200">
                         <svg
                             class="w-5 h-5"
                             aria-hidden="true"
@@ -63,7 +63,7 @@ function Regist({ verify }) {
                     <div class="ms-3 text-sm font-normal">{verify}.</div>
                     <button
                         type="button"
-                        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900  focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                         data-dismiss-target="#toast-warning"
                         aria-label="Close"
                     >
@@ -89,19 +89,44 @@ function Regist({ verify }) {
                 <></>
             )}
 
-            <section class="bg-gray-50 dark:bg-gray-900">
-                <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <section class="">
+                <div class="flex flex-col items-center justify-center  mx-auto md:h-screen lg:py-0">
+                  <div class = 'mt-14'>
+
                     <a
                         href="#"
                         class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-                    >
+                        >
                         Register
                     </a>
-                    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                        </div>
+                    <div class="w-96 bg-white  shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-500 md:text-2xl dark:text-white">
                                 Create an account
                             </h1>
+
+                            <a
+                                    href="/auth/redirect"
+                                    class="
+    
+     py-2 border flex items-center justify-center gap-2 border-slate-200 dark:border-slate-700  text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
+                                >
+                                    <img
+                                        class="w-6 h-6 "
+                                        src="https://www.svgrepo.com/show/475656/google-color.svg"
+                                        loading="lazy"
+                                        alt="google logo"
+                                    />
+                                    <span>Login with Google</span>
+                                </a>
+                            <div class="flex items-center space-x-2">
+                                    <hr class="w-full border-slate-300 dark:border-slate-700" />
+                                    <span class="text-sm text-slate-500 dark:text-slate-400">
+                                        or
+                                    </span>
+                                    <hr class="w-full border-slate-300 dark:border-slate-700" />
+                                </div>
                             <form
                                 class="space-y-4 md:space-y-6"
                                 onSubmit={submit}
@@ -130,7 +155,7 @@ function Regist({ verify }) {
                                             type="email"
                                             name="email"
                                             id="email"
-                                            class={`pl-10 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
+                                            class={`pl-10 bg-gray-50 border text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
                         ${
                             errors.email
                                 ? "border-red-500 dark:border-red-500"
@@ -157,7 +182,7 @@ function Regist({ verify }) {
 
                                     <label
                                         for="password"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                        class="block mb-2 mt-3 text-sm font-medium text-gray-900 dark:text-white"
                                     >
                                         Password
                                     </label>
@@ -174,14 +199,14 @@ function Regist({ verify }) {
                                             name="password"
                                             id="password"
                                             placeholder="••••••••"
-                                            class={` pl-0 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
-                        ${
-                            errors.password
-                                ? "pl-10 border-red-500 dark:border-red-500"
-                                : "border-gray-300 dark:border-gray-600"
-                        }
-                        dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
-                                            required
+                                            class={` pl-0 bg-gray-50 border text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
+                                                ${
+                                                    errors.password
+                                                        ? "pl-10 border-red-500 dark:border-red-500"
+                                                        : "border-gray-300 dark:border-gray-600"
+                                                }
+                                                dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+                                                                    required
                                             value={data.password}
                                             onChange={(e) =>
                                                 setData(
@@ -190,7 +215,7 @@ function Regist({ verify }) {
                                                 )
                                             }
                                         />
-                                        <button
+                                           <button
                                             type="button"
                                             onClick={() =>
                                                 setShowPassword(!showPassword)
@@ -268,13 +293,13 @@ function Regist({ verify }) {
                                             name="confirm-password"
                                             id="confirm-password"
                                             placeholder="••••••••"
-                                            class={`bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
-                        ${
-                            errors.password
-                                ? "border-red-500 dark:border-red-500"
-                                : "border-gray-300 dark:border-gray-600"
-                        }
-                        dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+                                            class={`bg-gray-50 border text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
+                                        ${
+                                            errors.password
+                                                ? "border-red-500 dark:border-red-500"
+                                                : "border-gray-300 dark:border-gray-600"
+                                        }
+                                        dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
                                             value={data.password_confirmation}
                                             onChange={(e) =>
                                                 setData(
@@ -372,7 +397,7 @@ function Regist({ verify }) {
                                     type="submit"
                                     onClick={handlesubmit}
                                     disabled={processing}
-                                    class="w-full text-white bg-blue-700 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                                    class="w-full text-black bg-yellow-400  font-medium  text-sm px-5 py-2.5 me-2 mb-2  "
                                 >
                                     {loading ? (
                                         <>
@@ -391,27 +416,9 @@ function Regist({ verify }) {
                                         Login here
                                     </Link>
                                 </p>
-                                <div class="flex items-center space-x-2">
-                                    <hr class="w-full border-slate-300 dark:border-slate-700" />
-                                    <span class="text-sm text-slate-500 dark:text-slate-400">
-                                        or
-                                    </span>
-                                    <hr class="w-full border-slate-300 dark:border-slate-700" />
-                                </div>
-                                <a
-                                    href="/auth/redirect"
-                                    class="
-    
-     py-2 border flex items-center justify-center gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
-                                >
-                                    <img
-                                        class="w-6 h-6 "
-                                        src="https://www.svgrepo.com/show/475656/google-color.svg"
-                                        loading="lazy"
-                                        alt="google logo"
-                                    />
-                                    <span>Login with Google</span>
-                                </a>
+                                
+
+
                             </form>
                         </div>
                     </div>

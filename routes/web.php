@@ -63,10 +63,12 @@ Route::get('home',[HomeController::class, 'index']);
 Route::middleware('auth')->get('users',[UsersController::class,'index']);
 
 
+//Route edit profile
 
+Route::middleware('auth')->get('editprofile',[AuthController::class,'editprofile']);
 
-// Route Media
-Route::get('media',[MediaController::class,'index']);
+Route::middleware('auth')->post('editprofile',[AuthController::class,'storeeditprofile']);
 
-Route::get('media/{slug}',[MediaController::class,'antara_category']);
-Route::get('media/{mediaslug}/{categoryslug}',[MediaController::class,'category_posts']);
+// Route delete acount
+
+Route::middleware('auth')->post('deleteacount',[AuthController::class,'deleteacount']);
