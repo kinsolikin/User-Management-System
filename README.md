@@ -3,7 +3,7 @@
 Ini adalah sistem manajemen pengguna yang dibangun menggunakan Laravel Inertia. Sistem ini mencakup berbagai fitur penting untuk mengelola dan memverifikasi pengguna. Berikut adalah fitur utama dari sistem ini:
 
 # Proyek Saya
-Situs ini dapat diakses di [http://usermanagement.wuaze.com/](http://usermanagement.wuaze.com/)
+Situs ini dapat diakses di [https://usermanagement.wuaze.com/](https://usermanagement.wuaze.com/)
 
 ## Fitur Utama
 
